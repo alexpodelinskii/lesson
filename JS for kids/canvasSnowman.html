@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Изучаем рисование</title>
+</head>
+<body>
+<canvas id="canvas" width="1000" height="1000"></canvas>
+<script type="text/javascript">
+	var canvas = document.getElementById('canvas');
+	var ctx = canvas.getContext("2d");
+
+
+	
+	
+	ctx.lineWidth = 4;
+
+	var circus = function (x, y, radius, fillCircus) {
+		ctx.beginPath();
+		ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+			
+		if (fillCircus){
+			ctx.fill();
+		}
+		else {
+			ctx.stroke();
+		}}
+
+	var drawSnowMan = function (x, y){
+		
+		ctx.strokeStyle = "blue";
+		circus(x-10, y-10, 5, true);
+		circus(x+10, y-10, 5, true);
+		
+		circus(x,y-5,25,false);
+		circus(x,y+55,35,false);
+		circus(x, y+35, 5, true);
+		circus(x, y+55, 5, true);
+		circus(x, y+75, 5, true);
+		circus(x,y+135,45,false);
+		
+		ctx.fillStyle = "gold"
+		circus(x,y,5,true);
+	}
+	drawSnowMan(50,50);
+
+		
+
+		
+	
+
+
+	
+
+</script>
+</body>
+</html>

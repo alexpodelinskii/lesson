@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<meta charset="UTF-8">
+	<title> Страница DOM!!! </title>
+</head>
+<body>
+	<h1>Добро пожаловать на страицу с использованием DOM! </h1>
+	<script src="jquery-3.5.1.js"></script>
+
+	<script>
+		
+		$("h1").text("Мои друзья!")
+		for(var j=0; j<5; j++){
+			$("h1").fadeTo(5000, 0.1);
+		}
+		
+		var friends = ["Андрей", "Илья", "Саша", "Дима", "Сергей", "Эдуард", "Aртем"];
+		for(var i = 0; i<friends.length; i++) 
+		{
+			$("body").append("<p>" + friends[i] + "</p>");
+			
+
+		}
+		$("p").append(" лучший друг");
+		$('p').hide(1000).fadeIn(1000);
+	</script>
+</body>
+</html>

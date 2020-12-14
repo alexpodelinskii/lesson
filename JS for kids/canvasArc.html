@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Изучаем рисование</title>
+</head>
+<body>
+<canvas id="canvas" width="1000" height="1000"></canvas>
+<script type="text/javascript">
+	var canvas = document.getElementById('canvas');
+	var ctx = canvas.getContext("2d");
+
+
+	ctx.strokeStyle = "blue";
+	ctx.lineWidth = 4;
+
+	var circus = function (x, y, radius) {
+		ctx.beginPath();
+		ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+		ctx.stroke();	}
+		for (var i=0; i<8; i++){
+		circus(100, 100, 10*i);	
+		}
+	
+
+
+	
+
+</script>
+</body>
+</html>

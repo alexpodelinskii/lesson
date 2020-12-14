@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Гонки</title>
+</head>
+<body>
+	<script src="jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		var Car = function(x, y){
+			this.x = x;
+			this.y = y;
+			this.draw();
+			
+		};
+
+		Car.prototype.speed = function(){
+			var speed = Math.floor(Math.random()*5);
+		return(speed);
+		};
+
+		Car.prototype.draw = function (){
+			var carHtml = '<img src="car.png">';
+
+			this.carElement = $(carHtml);
+			
+			this.carElement.css({
+				position: "absolute",
+				left: this.x,
+				top: this.y
+			});
+
+			$("body").append(this.carElement);
+
+			
+		};
+		Car.prototype.moveRight = function(){
+			var speedX = this.speed();
+			this.x += speedX;
+
+			this.carElement.css({
+				left: this.x,
+				top:this.y
+				
+			});
+		};	
+		
+
+var tesla = new Car(20, 20);
+var nissan = new Car(20, 100);
+
+ setInterval(function(){
+ 	nissan.moveRight();
+ 	tesla.moveRight();
+
+
+ }, 30);
+
+ 
+
+
+
+
+	</script>
+
+
+
+</body>
+</html>

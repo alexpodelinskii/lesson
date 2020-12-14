@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>
+Мои пробы в Java Script
+</title>
+</head>
+<body>
+ <h1>Привет, мир!</h1>
+ <p>Моя веб-страничка.</p>
+<script>
+	var alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя ";
+	var randomString = [];
+	for (var i = 0; i < 10; i++){
+		var zzz = "";
+		while (zzz.length < 6){
+	zzz += alphabet[Math.floor(Math.random()*alphabet.length)];
+		}
+	console.log(zzz);
+	randomString[i] = zzz;
+	}
+	console.log(randomString);
+</script>
+</body>
+</html>

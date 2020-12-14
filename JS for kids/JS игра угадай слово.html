@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Игра "Виселица"</title>
+</head>
+<body>
+
+<script>
+var words = ["макака", "космодром", "слон", "леший", "яйцо", "костюм", "моль"];
+var secretWord = words[Math.floor(Math.random()*words.length)];
+var secretArray = []
+for (var i = 0; i<secretWord.length; i++){
+secretArray[i] = "_";
+}
+alert("Добро пожаловать в мою первую игру на JS!!! Угадай секретное слово. Удачи!");
+var  numberWords = secretWord.length;
+while(numberWords>0){
+var key = prompt("Загадано слово: " + secretArray.join(" ") + "  Выбери любую букву.       Для выхода из игры нажмите 'Отмена'");
+if (key === null) {
+break;}
+else if (key.length!==1){
+alert("Необходимо ввести только одну букву");
+}
+else{
+for (var i=0; i<secretWord.length; i++){
+if (key === secretWord[i]){
+secretArray[i] = key;
+numberWords--;}
+}
+}
+
+}
+alert("Было загадано слово: " + secretWord);
+</script>
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

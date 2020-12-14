@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Изучаем рисование</title>
+</head>
+<body>
+<canvas id="canvas" width="1000" height="1000"></canvas>
+<script type="text/javascript">
+	var canvas = document.getElementById('canvas');
+	var ctx = canvas.getContext("2d");
+
+
+	ctx.strokeStyle = "blue";
+	ctx.lineWidth = 4;
+	ctx.strokeRect(50,50,50,50);
+	ctx.beginPath();
+	ctx.moveTo(75,100);
+	ctx.lineTo(75,160);
+	ctx.lineTo(125,200);
+	ctx.moveTo(75,160);
+	ctx.lineTo(25,200);
+	ctx.moveTo(25,90);
+	ctx.lineTo(75,125);
+	ctx.lineTo(125,90);
+	ctx.stroke();
+
+	ctx.beginPath();
+	ctx.arc(75, 275, 25, 0, Math.PI * 2, false);
+	ctx.fill();
+
+</script>
+</body>
+</html>

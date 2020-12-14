@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Прыгающий мячик</title>
+</head>
+<body>
+<canvas id="canvas" width = "500" height="300"></canvas>
+<script src="jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+
+	var width = canvas.width;
+ 	var height = canvas.height;
+
+
+
+	var speed = function(){
+		var x = Math.floor(Math.random()*4-4);
+		return(x);
+	};
+
+	var Ball = function(){
+	this.x = width/2;
+	this.y = height/2;
+	this.speedX = speed();
+	this.speedY = speed();
+	};
+
+	
+
+
+	Ball.prototype.draw= function(){
+		ctx.beginPath();
+		ctx.arc(this.x,this.y, 10,0, Math.PI*2, false);
+		ctx.fill();
+	};
+
+	
+
+	Ball.prototype.checkCollision = function(){
+		if ((this.x<0)||(this.x>width)){
+			
+			this.speedX = 0 - this.speedX;
+		}
+		
+		if ((this.y<0)||(this.y>height)){
+			
+			this.speedY = 0 - this.speedY;
+		}
+
+	};
+
+	Ball.prototype.move = function(){
+		this.x = this.x + this.speedX;
+		this.y = this.y + this.speedY;
+	};
+
+
+
+	var ball = new Ball;
+	setInterval(function(){
+		ctx.clearRect(0,0,width,height);
+		ctx.strokeRect(0,0,width,height);
+		
+		ball.draw();
+		ball.move();
+		ball.checkCollision();
+		
+		
+		
+		
+
+	},10);
+	
+</script>
+</body>
+</html>
+
+

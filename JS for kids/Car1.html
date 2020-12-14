@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Гонки 1</title>
+</head>
+<body>
+	<script src="jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		var Car = function(x, y){
+			this.x = x;
+			this.y = y;
+		};
+
+		var drawCar = function (car) {
+ var carHtml = '<img src="car.png">';
+var carElement = $(carHtml);
+ carElement.css({
+ position: "absolute",
+ left: car.x,
+ top: car.y
+ });
+ $("body").append(carElement);
+ };
+	
+var tesla = new Car(20, 20);
+var nissan = new Car(100, 200);
+drawCar(tesla);
+drawCar(nissan);
+ 
+
+ 
+
+
+
+
+	</script>
+
+
+
+</body>
+</html>

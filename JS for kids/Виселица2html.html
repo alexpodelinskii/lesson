@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Игра "Виселица"</title>
+</head>
+<body>
+<canvas id="canvas" width="400" height="400"></canvas>
+<script src="jquery-3.5.1.js"></script>
+<script>
+	var canvas = document.getElementById("canvas")
+	var ctx = canvas.getContext("2d");
+
+var words = ["макака", "космодром", "слон", "леший", "яйцо", "костюм", "моль"];
+var secretWord = words[Math.floor(Math.random()*words.length)];
+
+var secretArray = []
+for (var i = 0; i<secretWord.length; i++){
+secretArray[i] = "_";
+}
+var drawHuman = function (numberOfAttemps) {
+	if (numberOfAttemps === 6){
+		ctx.strokeRect(50,50,50,50);
+	}
+	else if (numberOfAttemps ===5){
+		ctx.beginPath();
+		ctx.moveTo(75,100);
+		ctx.lineTo(75,120);
+		ctx.stroke();
+	} else if (numberOfAttemps === 4){
+		ctx.beginPath();
+		ctx.moveTo(25,90);
+		ctx.lineTo(75,120);
+		ctx.stroke();
+	} else if (numberOfAttemps === 3){
+		ctx.beginPath();
+		ctx.moveTo(75,120);
+		ctx.lineTo(	125,90);
+		ctx.stroke();
+	} else if (numberOfAttemps === 2){
+		ctx.beginPath();
+		ctx.moveTo(75,120);
+		ctx.lineTo(	75,160);
+		ctx.stroke();
+	} else if (numberOfAttemps === 1){
+		ctx.beginPath();
+		ctx.moveTo(75,160);
+		ctx.lineTo(	25,190);
+		ctx.stroke();
+	}
+
+	
+}
+
+alert("Добро пожаловать в  игру  'Угадай секретное слово.' Удачи!");
+
+var  numberWords = secretWord.length;
+var numberOfAttemps = 7;
+
+while(numberWords>0){
+	setTimeOut(key, 1000);
+	var key = prompt("Загадано слово: " + secretArray.join(" ") + ".   У Вас осталось попыток: " + numberOfAttemps + ".  Выбери любую букву.       Для выхода из игры нажмите 'Отмена'");
+	
+	var attemp = true; 
+	if (key === null) {
+		break;}
+	else if (key.length!==1){
+		alert("Необходимо ввести только одну букву");
+	}
+	else{
+
+		for (var i=0; i<secretWord.length; i++){
+			if (key === secretWord[i]){
+				secretArray[i] = key;
+				numberWords--;
+				attemp = false;
+			}
+	
+		
+		} 
+
+		if (attemp){
+			numberOfAttemps--;
+			drawHuman(numberOfAttemps);
+		}
+	}
+
+	if (numberOfAttemps===0){
+		ctx.beginPath();
+		ctx.moveTo(75,160);
+		ctx.lineTo(	125,190);
+		ctx.stroke();
+		alert("Вы проиграли :(");
+		break;
+
+	}
+	
+}
+
+alert("Было загадано слово: " + secretWord);
+</script>
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

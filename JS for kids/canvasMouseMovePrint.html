@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Изучаем рисование</title>
+</head>
+<body>
+<canvas id="canvas" width="1000" height="1000"></canvas>
+<script src="jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	var canvas = document.getElementById('canvas');
+	var ctx = canvas.getContext("2d");
+
+	
+
+
+
+	var drawCircle = function (x,y) {
+		ctx.beginPath();
+		ctx.arc(x,y, 3, 0, Math.PI*2, false);
+		ctx.fill();
+		}
+drawCircle(50, 50);
+		$("#canvas").mousemove(function (event){
+			var x = event.pageX;
+			var y = event.pageY;
+			drawCircle(x, y);
+		});
+		
+
+
+	
+
+</script>
+</body>
+</html>
