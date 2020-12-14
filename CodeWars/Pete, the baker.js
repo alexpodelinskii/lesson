@@ -12,12 +12,12 @@ cakes({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, {sugar: 500, flo
 function cakes(recipe, available) {
     let map = Object.entries(recipe);
     let count = 1000;
-    
-    for ( let i=0; i<map.length; i++){
-      if (!available[map[i][0]]) return 0;
-      if ( (available[map[i][0]]/map[i][1])< count){
-        count = available[map[i][0]]/map[i][1];
+
+    for (let i = 0; i < map.length; i++) {
+        if (!available[map[i][0]]) return 0;
+        if ((available[map[i][0]] / map[i][1]) < count) {
+            count = available[map[i][0]] / map[i][1];
         }
     }
     return Math.floor(count);
-  }
+}
