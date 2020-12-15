@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          This is my first steep in react 2
+          This is my first steep in react3326
         </p>
         <a
           className="App-link"
